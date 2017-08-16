@@ -159,11 +159,28 @@ meansBothGenderMale = apply(bothGenderMale, 2, mean)
 meansBothGenderMale
 
 
-################# Female ################################
-# Both for the different breakdowns.  Gender first
+
+```
+Female
+```{r}
+
+---
+title: "Test2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
 bothAll = as.data.frame(rbind(mccsc, rbbcsc))
+bothGender = apply(bothGender,2, function(x){ifelse(x == "NA", NA, x)})
+
 bothGender = bothAll[c("SELQuant1", "SELQuant2", "SELQuant3", "SELQuant4", "SELQuant5", "SELQuant6", "gender")]
 head(bothGender)
+bothGender = na.omit(bothGender)
+bothGender = apply(bothGender,2, function(x){ifelse(x == "NA", NA, x)})
 bothGender = na.omit(bothGender)
 bothGender = as.data.frame(bothGender)
 dim(bothGender)
@@ -184,14 +201,119 @@ bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Somewhat 
 bothGenderFemale = as.data.frame(bothGenderFemale)
 bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Disagree", 2, x)}); bothGenderFemale
 bothGenderFemale = as.data.frame(bothGenderFemale)
-bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Strongly disagree", 1, x)}); bothGenderFemale
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Strongly disagree", 1, x)}); 
 bothGenderFemale = as.data.frame(bothGenderFemale)
+dim(bothGenderFemale)
+typeof(bothGenderFemale)
+bothGenderFemale = data.frame(bothGenderFemale)
+bothGenderFemale = matrix(unlist(bothGenderFemale), ncol= 6)
+
 write.csv(bothGenderFemale, "bothGenderFemale.csv", row.names = FALSE)
 bothGenderFemale = read.csv("bothGenderFemale.csv", header = TRUE)
-bothGenderFemale = 
-head(bothGenderFemale)
-
-meansbothGenderFemale = colMeans(bothGenderFemale)
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = na.omit(bothGenderFemale)
+typeof(bothGenderFemale)
+meansbothGenderFemale = apply(bothGenderFemale, 2, mean)
 meansbothGenderFemale
 ```
+
+Ethnicity White versus nonwhite
+```{r}
+---
+title: "Test2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+This is for White.  
+```{r}
+bothAll = as.data.frame(rbind(mccsc, rbbcsc))
+bothGender = apply(bothGender,2, function(x){ifelse(x == "NA", NA, x)})
+
+bothGender = bothAll[c("SELQuant1", "SELQuant2", "SELQuant3", "SELQuant4", "SELQuant5", "SELQuant6", "eth")]
+head(bothGender)
+bothGender = na.omit(bothGender)
+bothGender = apply(bothGender,2, function(x){ifelse(x == "NA", NA, x)})
+bothGender = na.omit(bothGender)
+bothGender = as.data.frame(bothGender)
+dim(bothGender)
+# I want to get means for each column for the two different genders
+bothGenderFemale = as.data.frame(bothGender[bothGender$eth == "White",])
+head(bothGenderFemale)
+bothGenderFemale = as.data.frame(bothGenderFemale[c(-7)])
+
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Strongly agree", 7, x)}); bothGenderFemale
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Agree", 6, x)}); bothGenderFemale
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Somewhat agree", 5, x)}); bothGenderFemale
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Neither agree nor disagree", 4, x)}); 
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Somewhat disagree", 3, x)}); bothGenderFemale
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Disagree", 2, x)}); bothGenderFemale
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Strongly disagree", 1, x)}); 
+bothGenderFemale = as.data.frame(bothGenderFemale)
+dim(bothGenderFemale)
+typeof(bothGenderFemale)
+bothGenderFemale = data.frame(bothGenderFemale)
+bothGenderFemale = matrix(unlist(bothGenderFemale), ncol= 6)
+
+write.csv(bothGenderFemale, "bothGenderFemale.csv", row.names = FALSE)
+bothGenderFemale = read.csv("bothGenderFemale.csv", header = TRUE)
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = na.omit(bothGenderFemale)
+typeof(bothGenderFemale)
+meansbothGenderFemale = apply(bothGenderFemale, 2, mean)
+meansbothGenderFemale
+```
+This is for non-white
+```{r}
+bothAll = as.data.frame(rbind(mccsc, rbbcsc))
+bothGender = apply(bothGender,2, function(x){ifelse(x == "NA", NA, x)})
+
+bothGender = bothAll[c("SELQuant1", "SELQuant2", "SELQuant3", "SELQuant4", "SELQuant5", "SELQuant6", "eth")]
+head(bothGender)
+bothGender = na.omit(bothGender)
+bothGender = apply(bothGender,2, function(x){ifelse(x == "NA", NA, x)})
+bothGender = na.omit(bothGender)
+bothGender = as.data.frame(bothGender)
+dim(bothGender)
+# I want to get means for each column for the two different genders
+bothGenderFemale = as.data.frame(bothGender[bothGender$eth != "White",])
+head(bothGenderFemale)
+bothGenderFemale = as.data.frame(bothGenderFemale[c(-7)])
+
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Strongly agree", 7, x)}); bothGenderFemale
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Agree", 6, x)}); bothGenderFemale
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Somewhat agree", 5, x)}); bothGenderFemale
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Neither agree nor disagree", 4, x)}); 
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Somewhat disagree", 3, x)}); bothGenderFemale
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Disagree", 2, x)}); bothGenderFemale
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = apply(bothGenderFemale, 2, function(x){ifelse(x == "Strongly disagree", 1, x)}); 
+bothGenderFemale = as.data.frame(bothGenderFemale)
+dim(bothGenderFemale)
+typeof(bothGenderFemale)
+bothGenderFemale = data.frame(bothGenderFemale)
+bothGenderFemale = matrix(unlist(bothGenderFemale), ncol= 6)
+
+write.csv(bothGenderFemale, "bothGenderFemale.csv", row.names = FALSE)
+bothGenderFemale = read.csv("bothGenderFemale.csv", header = TRUE)
+bothGenderFemale = as.data.frame(bothGenderFemale)
+bothGenderFemale = na.omit(bothGenderFemale)
+typeof(bothGenderFemale)
+meansbothGenderFemale = apply(bothGenderFemale, 2, mean)
+meansbothGenderFemale
+```
+
 
