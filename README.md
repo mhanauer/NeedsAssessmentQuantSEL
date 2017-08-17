@@ -1,5 +1,5 @@
 ---
-title: "Power Analysis in R for Multilevel Models"
+title: "Needs Asssessment SEL Quantiative"
 output: html_document
 ---
 
@@ -36,7 +36,7 @@ head(rbbcsc)
 rbbcsc = as.data.frame(rbbcsc)
 
 rbbcsc1 = rbbcsc[,1:8]
-eth = rbbcsc[c("Q28")]
+eth = rbbcsc[c("Q11")]
 gender = rbbcsc[c("Q10")]
 edu = rbbcsc[c("Q12")]
 job = rbbcsc[c("Q15")]
@@ -76,7 +76,7 @@ head(rbbcsc2)
 Now MCCSC SEL
 ```{r}
 setwd("~/Desktop/QualData")
-mccscTest = read.csv("mccscStaffSurvey.csv", header = TRUE)
+mccsc = read.csv("MCCSCStaffSurvey.csv", header = TRUE)
 head(mccsc)
 
 mccsc1 = mccsc[c("Q1_1", "Q1_2", "Q1_3", "Q1_4", "Q1_5", "Q1_6", "Q2", "Q3")]
@@ -114,7 +114,7 @@ Now we can combine the data and then get an average value across every column.  
 
 Means of each questions, means broken down by eth, gender, and job along with the n's for each
 
-Here is for the Overall, Male and Female
+Here is for the Overall, Male 
 ```{r}
 # Both just for the quantitative section
 bothQuan = as.data.frame(rbind(mccsc2, rbbcsc2))
@@ -163,17 +163,6 @@ meansBothGenderMale
 ```
 Female
 ```{r}
-
----
-title: "Test2"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r}
 bothAll = as.data.frame(rbind(mccsc, rbbcsc))
 bothGender = apply(bothGender,2, function(x){ifelse(x == "NA", NA, x)})
 
@@ -215,17 +204,6 @@ bothGenderFemale = na.omit(bothGenderFemale)
 typeof(bothGenderFemale)
 meansbothGenderFemale = apply(bothGenderFemale, 2, mean)
 meansbothGenderFemale
-```
-
-Ethnicity White versus nonwhite
-```{r}
----
-title: "Test2"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
 ```
 This is for White.  
 ```{r}
