@@ -24,10 +24,10 @@ SELQualBarr = SEL barriers question
 
 Here is for RBBCSC
 ```{r}
-setwd("~/Desktop/QualData")
-rbbcsc = read.csv("RBBCSCStaffSurvey.csv", header = TRUE); head(rbbcsc)
+#setwd("~/Desktop/QualData")
+#rbbcsc = read.csv("RBBCSCStaffSurvey.csv", header = TRUE); head(rbbcsc)
 
-rbbcsc = rbbcscTest[-c(1:7),]; head(rbbcsc, 20)
+rbbcsc = rbbcsc[-c(1:7),]; head(rbbcsc, 20)
 rbbcsc = rbbcsc[,-c(1:16)]; head(rbbcsc, 20)
 
 rbbcsc = rbbcsc[,-c(38:54)]; head(rbbcsc, 20)
@@ -75,10 +75,10 @@ head(rbbcsc2)
 ```
 Now MCCSC SEL
 ```{r}
-setwd("~/Desktop/QualData")
-mccsc = read.csv("MCCSCStaffSurvey.csv", header = TRUE)
+#setwd("~/Desktop/QualData")
+#mccsc = read.csv("MCCSCStaffSurvey.csv", header = TRUE)
 head(mccsc)
-
+mccsc = mccsc[-c(1:11),]; head(mccsc, 20)
 mccsc1 = mccsc[c("Q1_1", "Q1_2", "Q1_3", "Q1_4", "Q1_5", "Q1_6", "Q2", "Q3")]
 eth = mccsc[c("Q30")]
 gender = mccsc[c("Q36")]
@@ -157,7 +157,6 @@ write.csv(bothGenderMale, "bothGenderMale.csv", row.names = FALSE)
 bothGenderMale = read.csv("bothGenderMale.csv", header = TRUE)
 meansBothGenderMale = apply(bothGenderMale, 2, mean)
 meansBothGenderMale
-
 
 
 ```
