@@ -156,7 +156,7 @@ head(bothGenderMale)
 write.csv(bothGenderMale, "bothGenderMale.csv", row.names = FALSE)
 bothGenderMale = read.csv("bothGenderMale.csv", header = TRUE)
 meansBothGenderMale = apply(bothGenderMale, 2, mean)
-meansBothGenderMale
+round(meansBothGenderMale,2)
 
 
 ```
@@ -202,7 +202,7 @@ bothGenderFemale = as.data.frame(bothGenderFemale)
 bothGenderFemale = na.omit(bothGenderFemale)
 typeof(bothGenderFemale)
 meansbothGenderFemale = apply(bothGenderFemale, 2, mean)
-meansbothGenderFemale
+round(meansbothGenderFemale,2)
 ```
 This is for White.  
 ```{r}
@@ -246,7 +246,7 @@ bothGenderFemale = as.data.frame(bothGenderFemale)
 bothGenderFemale = na.omit(bothGenderFemale)
 typeof(bothGenderFemale)
 meansbothGenderFemale = apply(bothGenderFemale, 2, mean)
-meansbothGenderFemale
+round(meansbothGenderFemale,2)
 ```
 This is for non-white
 ```{r}
@@ -290,7 +290,7 @@ bothGenderFemale = as.data.frame(bothGenderFemale)
 bothGenderFemale = na.omit(bothGenderFemale)
 typeof(bothGenderFemale)
 meansbothGenderFemale = apply(bothGenderFemale, 2, mean)
-meansbothGenderFemale
+round(meansbothGenderFemale,2)
 ```
 This is for a Master's
 ```{r}
@@ -335,7 +335,7 @@ bothGenderFemale = as.data.frame(bothGenderFemale)
 bothGenderFemale = na.omit(bothGenderFemale)
 typeof(bothGenderFemale)
 meansbothGenderFemale = apply(bothGenderFemale, 2, mean)
-meansbothGenderFemale
+round(meansbothGenderFemale,2)
 ```
 This is for a Bachelors
 ```{r}
@@ -380,7 +380,7 @@ bothGenderFemale = as.data.frame(bothGenderFemale)
 bothGenderFemale = na.omit(bothGenderFemale)
 typeof(bothGenderFemale)
 meansbothGenderFemale = apply(bothGenderFemale, 2, mean)
-meansbothGenderFemale
+round(meansbothGenderFemale,2)
 ```
 This is for primary teachers
 ```{r}
@@ -425,7 +425,7 @@ bothGenderFemale = as.data.frame(bothGenderFemale)
 bothGenderFemale = na.omit(bothGenderFemale)
 typeof(bothGenderFemale)
 meansbothGenderFemale = apply(bothGenderFemale, 2, mean)
-meansbothGenderFemale
+round(meansbothGenderFemale,2)
 ```
 This is for secondary teachers
 ```{r}
@@ -470,7 +470,7 @@ bothGenderFemale = as.data.frame(bothGenderFemale)
 bothGenderFemale = na.omit(bothGenderFemale)
 typeof(bothGenderFemale)
 meansbothGenderFemale = apply(bothGenderFemale, 2, mean)
-meansbothGenderFemale
+round(meansbothGenderFemale,2)
 ```
 This is for Administrator
 ```{r}
